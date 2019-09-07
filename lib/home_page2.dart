@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:login_pages/rekap.dart';
 import 'package:login_pages/setoran.dart';
+import 'package:login_pages/simpanan.dart';
 // import 'package:carousel_slider/carousel_slider.dart';
 
 class HomePage2 extends StatelessWidget {
@@ -168,7 +170,12 @@ class HomePage2 extends StatelessWidget {
                         children: <Widget>[
                           FlatButton(
                           padding: EdgeInsets.fromLTRB(55.0, 15.0, 70.0, 15.0),
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.of(context).push(new MaterialPageRoute(
+                            builder: (BuildContext context) => new SimpananPage()
+                            )
+                            );
+                          },
                           child: Column(
                             children: <Widget>[
                               new Icon(Icons.folder_shared, size: 50.0, color: Colors.lightGreenAccent),
@@ -214,7 +221,12 @@ class HomePage2 extends StatelessWidget {
                         children: <Widget>[
                           FlatButton(
                           padding: EdgeInsets.fromLTRB(70.0, 15.0, 70.0, 15.0),
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.of(context).push(new MaterialPageRoute(
+                            builder: (BuildContext context) => new RekapPage()
+                            )
+                            );
+                          },
                           child: Column(
                             children: <Widget>[
                               new Icon(Icons.receipt, size: 50.0, color: Colors.lightGreenAccent),
