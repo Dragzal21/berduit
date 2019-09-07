@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:login_pages/home_page2.dart';
 import 'package:login_pages/login_page.dart';
 import 'package:login_pages/register_page.dart';
+import 'package:login_pages/setoran.dart';
 import './login_page.dart';
 import './home_page.dart';
-import './register_page.dart';
 import './home_page2.dart';
+import './register_page.dart';
+import './setoran.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
     RegisterPage.tag: (context) => RegisterPage(),
     HomePage.tag: (context) => HomePage(),
     HomePage2.tag: (context) => HomePage2(),
+    SetoranPage.tag: (context) => SetoranPage(),
   };
 
   @override
