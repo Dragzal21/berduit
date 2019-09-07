@@ -2,25 +2,58 @@ import 'package:flutter/material.dart';
 import 'package:login_pages/home_page.dart';
 import 'package:login_pages/register_page.dart';
 
-class LoginPage extends StatefulWidget {
-  static String tag = 'login-page';
+class HomePage2 extends StatefulWidget {
+  static String tag = 'home-page';
   @override
-  _LoginPageState createState() => new _LoginPageState();
+  _HomePage2State createState() => new _HomePage2State();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _HomePage2State extends State<HomePage2> {
   @override
   Widget build(BuildContext context) {
     final logo = Hero(
       tag: 'hero',
       child: CircleAvatar(
         backgroundColor: Colors.transparent,
-        radius: 48.0,
+        radius: 30.0,
         child: Image.asset('assets/logo.png'),
       ),
     );
 
-    final email = TextFormField(
+    final email1 = TextFormField(
+      keyboardType: TextInputType.emailAddress,
+      autofocus: false,
+      initialValue: '',
+      decoration: InputDecoration(
+        hintText: 'Email',
+        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+      ),
+    );
+
+    final email2 = TextFormField(
+      keyboardType: TextInputType.emailAddress,
+      autofocus: false,
+      initialValue: '',
+      decoration: InputDecoration(
+        hintText: 'Email',
+        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+      ),
+    );
+
+    final email3 = TextFormField(
+      keyboardType: TextInputType.emailAddress,
+      autofocus: false,
+      initialValue: '',
+      decoration: InputDecoration(
+        hintText: 'Email',
+        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+      ),
+    );
+
+    final email4 = TextFormField(
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
       initialValue: '',
@@ -36,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
       initialValue: '',
       obscureText: true,
       decoration: InputDecoration(
-        hintText: 'sadsadad',
+        hintText: 'Password',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
       ),
@@ -92,7 +125,13 @@ class _LoginPageState extends State<LoginPage> {
           children: <Widget>[
             logo,
             SizedBox(height: 48.0),
-            email,
+            email1,
+            SizedBox(height: 8.0),
+            email2,
+            SizedBox(height: 8.0),
+            email3,
+            SizedBox(height: 8.0),
+            email4,
             SizedBox(height: 8.0),
             password,
             SizedBox(height: 24.0),

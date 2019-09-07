@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:login_pages/home_page2.dart';
 import 'package:login_pages/login_page.dart';
 import 'package:login_pages/register_page.dart';
 import './login_page.dart';
 import './home_page.dart';
 import './register_page.dart';
+import './home_page2.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,6 +14,7 @@ class MyApp extends StatelessWidget {
     LoginPage.tag: (context) => LoginPage(),
     RegisterPage.tag: (context) => RegisterPage(),
     HomePage.tag: (context) => HomePage(),
+    HomePage2.tag: (context) => HomePage2(),
   };
 
   @override
