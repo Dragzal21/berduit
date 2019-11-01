@@ -10,6 +10,55 @@ class HomePage2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
    return Scaffold(
+     appBar: AppBar(
+        title: new Text("E-Rembug"),
+      ),
+      drawer: Drawer(
+          child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+        
+            UserAccountsDrawerHeader(
+              accountName: new Text("Bayu"),
+              accountEmail: new Text("bayu@gmail.com"),
+              currentAccountPicture: new CircleAvatar(
+                backgroundImage: NetworkImage("https://code.byriza.com/lib/img/logo.png"),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Item 1'),
+              trailing: Icon(Icons.chevron_right),
+              onTap: () {
+                
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.account_box),
+              title: Text('Item 2'),
+              trailing: Icon(Icons.chevron_right),
+              onTap: () {
+                
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.add_location),
+              title: Text('Item 3'),
+              trailing: Icon(Icons.chevron_right),
+              onTap: () {
+                
+              },
+            ),
+            ListTile(
+              title: Text('Logout'),
+              onTap: (){
+                
+              },
+            ),
+          ],
+        ),
+      ),
       body: ListView(
         children: <Widget>[
           Column(
@@ -17,7 +66,7 @@ class HomePage2 extends StatelessWidget {
               Stack(
                 children: <Widget>[
                   Container(
-                    height: 280.0,
+                    height: 350.0,
                     color: Colors.lightGreenAccent,
                   ),
                   Positioned(
@@ -55,22 +104,6 @@ class HomePage2 extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   SizedBox(height: 15.0),
-                  Row(
-                    children: <Widget>[
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width/1.15,
-                      ),
-                      Container(
-                        alignment: Alignment.topRight,
-                        child: IconButton(
-                          icon: Icon(Icons.menu),
-                          onPressed: (){},
-                          color: Colors.white,
-                          iconSize: 30.0,
-                        ),
-                      )
-                    ],
-                  ),
               SizedBox(height: 50.0),
               Padding(
                 padding: EdgeInsets.only(left: 15.0),
