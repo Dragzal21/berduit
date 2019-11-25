@@ -11,7 +11,7 @@ class HomePage2 extends StatelessWidget {
   Widget build(BuildContext context) {
    return Scaffold(
      appBar: AppBar(
-        title: new Text('HomePage2 ${Widget.user.email}'),
+        title: new Text("E-Rembug"),
       ),
       drawer: Drawer(
           child: ListView(

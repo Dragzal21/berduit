@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:login_pages/home_page2.dart';
+import 'package:login_pages/home_page.dart';
 import 'package:login_pages/register_page.dart';
-
 
 class LoginPage extends StatefulWidget {
   static String tag = 'login-page';
@@ -10,8 +9,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String _email, _password;
-  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     final logo = Hero(
@@ -24,12 +21,6 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     final email = TextFormField(
-      validator:(input){
-        if(input.isEmpty){
-          return 'Please type an email';
-        }
-      },
-      onSaved:(input) => _email = input, 
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
       initialValue: '',
@@ -41,17 +32,11 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     final password = TextFormField(
-      validator:(input){
-        if(input.length < 6){
-          return 'Please type an password';
-        }
-      },
-      onSaved:(input) => _email = input,
       autofocus: false,
       initialValue: '',
       obscureText: true,
       decoration: InputDecoration(
-        hintText: 'Password',
+        hintText: 'sadsadad',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
       ),
@@ -63,7 +48,9 @@ class _LoginPageState extends State<LoginPage> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24),
         ),
-        onPressed: signIn,
+        onPressed: () {
+          Navigator.of(context).pushNamed(HomePage.tag);
+        },
         padding: EdgeInsets.all(12),
         color: Colors.lightGreenAccent,
         child: Text('Log In', style: TextStyle(color: Colors.white)),
@@ -97,12 +84,8 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     return Scaffold(
-      appBar : AppBar(
-        title : Text('Sign In')
-      )
       backgroundColor: Colors.white,
-      body: Form(
-        key : _formkey,
+      body: Center(
         child: ListView(
           shrinkWrap: true,
           padding: EdgeInsets.only(left: 24.0, right: 24.0),
@@ -121,18 +104,4 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-}
-
-Future<void> signIn() async{
-  final formState = _formkey.currentState;
-  if(formState.validate()){ 
-    formState.save();
-    try{
-      FirebaseUser user = await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
-      Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage2(user:user));
-    }catch(e){
-      print(e.message);       
-    }
-    
-  } 
 }
