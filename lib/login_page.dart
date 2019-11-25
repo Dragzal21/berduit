@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_pages/home_page.dart';
+import 'package:login_pages/home_page2.dart';
 import 'package:login_pages/register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -62,9 +62,7 @@ class _LoginPageState extends State<LoginPage> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24),
         ),
-        onPressed: () {
-          Navigator.of(context).pushNamed(HomePage.tag);
-        },
+        onPressed: signIn,
         padding: EdgeInsets.all(12),
         color: Colors.lightGreenAccent,
         child: Text('Log In', style: TextStyle(color: Colors.white)),
@@ -124,10 +122,16 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-void signIn(){
+Future<void> signIn() async{
   final formState = _formkey.currentState;
-  if(formState.validate()){
+  if(formState.validate()){ 
+    formState.save();
+    try{
+      FirebaseUser user = await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage2(user:user));
+    }catch(e){
+      print(e.message);       
+    }
     
   } 
-
 }
