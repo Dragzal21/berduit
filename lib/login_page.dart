@@ -9,6 +9,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String _email, _password;
+  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     final logo = Hero(
@@ -21,6 +23,12 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     final email = TextFormField(
+      validator:(input){
+        if(input.isEmpty){
+          return 'Please type an email';
+        }
+      },
+      onSaved:(input) => _email = input, 
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
       initialValue: '',
@@ -32,11 +40,17 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     final password = TextFormField(
+      validator:(input){
+        if(input.length < 6){
+          return 'Please type an password';
+        }
+      },
+      onSaved:(input) => _email = input,
       autofocus: false,
       initialValue: '',
       obscureText: true,
       decoration: InputDecoration(
-        hintText: 'sadsadad',
+        hintText: 'Password',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
       ),
@@ -84,8 +98,12 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     return Scaffold(
+      appBar : AppBar(
+        title : Text('Sign In')
+      )
       backgroundColor: Colors.white,
-      body: Center(
+      body: Form(
+        key : _formkey,
         child: ListView(
           shrinkWrap: true,
           padding: EdgeInsets.only(left: 24.0, right: 24.0),
@@ -104,4 +122,12 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+}
+
+void signIn(){
+  final formState = _formkey.currentState;
+  if(formState.validate()){
+    
+  } 
+
 }
