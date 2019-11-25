@@ -84,8 +84,17 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     return Scaffold(
+<<<<<<< HEAD
       backgroundColor: Colors.white,
       body: Center(
+=======
+      appBar : AppBar(
+        title : Text('Sign In')
+      )
+      // backgroundColor: Colors.white,
+      body: Form(
+        key : _formkey,
+>>>>>>> df6d99e57cc1aac526d264a33ec6cc32e793e1a6
         child: ListView(
           shrinkWrap: true,
           padding: EdgeInsets.only(left: 24.0, right: 24.0),
@@ -104,4 +113,22 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+  Future<void> signIn() async{
+  final formState = _formkey.currentState;
+  if(formState.validate()){
+    formState.save();
+    try{
+      FirebaseUser user = await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage2(user:user)));
+    }catch(e){
+      print(e.message);       
+    }
+    
+  } 
+}
+}
+
+>>>>>>> df6d99e57cc1aac526d264a33ec6cc32e793e1a6
