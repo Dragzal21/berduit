@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "1000095128185",
-    "firebase_url": "https://berduit-41775.firebaseio.com",
-    "project_id": "berduit-41775",
-    "storage_bucket": "berduit-41775.appspot.com"
+    "project_number": "173147158357",
+    "firebase_url": "https://rembug-6ead5.firebaseio.com",
+    "project_id": "rembug-6ead5",
+    "storage_bucket": "rembug-6ead5.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1000095128185:android:348a2e193692252f6492a8",
+        "mobilesdk_app_id": "1:173147158357:android:812fa9c72463a841a6e1dc",
         "android_client_info": {
-          "package_name": "com.example.firebaseintegration"
+          "package_name": "com.example.login_pages"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1000095128185-q2idtjn2jjb6gap025n6n8mj7q8pshm1.apps.googleusercontent.com",
+          "client_id": "173147158357-4tbfqjhitvfbmjfg97lmchp7lmf2mijv.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA-KkhFhu1pSKmFV7Kuo1YTNhdu6mN7F_s"
+          "current_key": "AIzaSyCFfI8ZVhoRGZttpFN-RQjA--zUa6MeQ2g"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1000095128185-q2idtjn2jjb6gap025n6n8mj7q8pshm1.apps.googleusercontent.com",
+              "client_id": "173147158357-4tbfqjhitvfbmjfg97lmchp7lmf2mijv.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

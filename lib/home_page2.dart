@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:login_pages/rekap.dart';
 import 'package:login_pages/setoran.dart';
@@ -5,8 +6,9 @@ import 'package:login_pages/simpanan.dart';
 // import 'package:carousel_slider/carousel_slider.dart';
 
 class HomePage2 extends StatelessWidget {
+  const HomePage2({Key key, this.user}) : super(key: key);
+  final FirebaseUser user;
   static String tag = 'home-page2';
-
   @override
   Widget build(BuildContext context) {
    return Scaffold(
