@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:login_pages/home_page2.dart';
 import 'package:login_pages/register_page.dart';
 
-
 class LoginPage extends StatefulWidget {
   static String tag = 'login-page';
   @override
@@ -100,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
       appBar : AppBar(
         title : Text('Sign In')
       )
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       body: Form(
         key : _formkey,
         child: ListView(
@@ -121,18 +120,18 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-}
-
-Future<void> signIn() async{
+  Future<void> signIn() async{
   final formState = _formkey.currentState;
-  if(formState.validate()){ 
+  if(formState.validate()){
     formState.save();
     try{
       FirebaseUser user = await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
-      Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage2(user:user));
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage2(user:user)));
     }catch(e){
       print(e.message);       
     }
     
   } 
 }
+}
+
