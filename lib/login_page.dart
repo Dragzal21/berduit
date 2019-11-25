@@ -97,8 +97,8 @@ class _LoginPageState extends State<LoginPage> {
 
     return Scaffold(
       appBar : AppBar(
-        title : Text('Sign In')
-      )
+        title : Text('Sign In'),
+      ),
       // backgroundColor: Colors.white,
       body: Form(
         key : _formkey,
