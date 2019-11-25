@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1000095128185",
+    "firebase_url": "https://berduit-41775.firebaseio.com",
+    "project_id": "berduit-41775",
+    "storage_bucket": "berduit-41775.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000095128185:android:348a2e193692252f6492a8",
+        "android_client_info": {
+          "package_name": "com.example.firebaseintegration"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1000095128185-q2idtjn2jjb6gap025n6n8mj7q8pshm1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-KkhFhu1pSKmFV7Kuo1YTNhdu6mN7F_s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1000095128185-q2idtjn2jjb6gap025n6n8mj7q8pshm1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
