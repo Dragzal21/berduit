@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_pages/absen.dart';
 
 
 
@@ -31,7 +32,12 @@ class _SetoranPageState extends State<SetoranPage> {
                           Padding(
                             padding: const EdgeInsets.only(top: 20.0, left: 10, right: 10.0),
                             child: new InkWell(
-                            onTap: () => {},
+                            onTap: (){
+                            Navigator.of(context).push(new MaterialPageRoute(
+                            builder: (BuildContext context) => new AbsenPage()
+                            )
+                          );
+                          },
                             child: new Container(                            
                               //width: 100.0,
                               height: 50.0,
