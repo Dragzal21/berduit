@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_pages/home_page.dart';
+import 'package:login_pages/home_page2.dart';
 import 'package:login_pages/register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -9,6 +9,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String _email, _password;
+  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     final logo = Hero(
@@ -21,6 +23,12 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     final email = TextFormField(
+      validator:(input){
+        if(input.isEmpty){
+          return 'Please type an email';
+        }
+      },
+      onSaved:(input) => _email = input, 
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
       initialValue: '',
@@ -32,11 +40,17 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     final password = TextFormField(
+      validator:(input){
+        if(input.length < 6){
+          return 'Please type an password';
+        }
+      },
+      onSaved:(input) => _email = input,
       autofocus: false,
       initialValue: '',
       obscureText: true,
       decoration: InputDecoration(
-        hintText: 'sadsadad',
+        hintText: 'Password',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
       ),
@@ -48,9 +62,7 @@ class _LoginPageState extends State<LoginPage> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24),
         ),
-        onPressed: () {
-          Navigator.of(context).pushNamed(HomePage.tag);
-        },
+        onPressed: signIn,
         padding: EdgeInsets.all(12),
         color: Colors.lightGreenAccent,
         child: Text('Log In', style: TextStyle(color: Colors.white)),
@@ -84,17 +96,12 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     return Scaffold(
-<<<<<<< HEAD
-      backgroundColor: Colors.white,
-      body: Center(
-=======
       appBar : AppBar(
         title : Text('Sign In')
       )
       // backgroundColor: Colors.white,
       body: Form(
         key : _formkey,
->>>>>>> df6d99e57cc1aac526d264a33ec6cc32e793e1a6
         child: ListView(
           shrinkWrap: true,
           padding: EdgeInsets.only(left: 24.0, right: 24.0),
@@ -113,9 +120,6 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-<<<<<<< HEAD
-}
-=======
   Future<void> signIn() async{
   final formState = _formkey.currentState;
   if(formState.validate()){
@@ -131,4 +135,3 @@ class _LoginPageState extends State<LoginPage> {
 }
 }
 
->>>>>>> df6d99e57cc1aac526d264a33ec6cc32e793e1a6
