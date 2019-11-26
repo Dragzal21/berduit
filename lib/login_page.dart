@@ -10,6 +10,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final FirebaseAuth firebaseauth = FirebaseAuth.instance;
+  
   String _email, _password;
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   @override
@@ -24,13 +26,10 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     final email = TextFormField(
-      validator:(input){
-        if(input.isEmpty){
-          return 'Please type an email';
-        }
-      },
+      
       onSaved:(input) => _email = input, 
       keyboardType: TextInputType.emailAddress,
+      validator:(value) => value.isEmpty ? 'Please Enter Your Email': null,
       autofocus: false,
       initialValue: '',
       decoration: InputDecoration(
@@ -41,12 +40,8 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     final password = TextFormField(
-      validator:(input){
-        if(input.length < 6){
-          return 'Please type an password';
-        }
-      },
-      onSaved:(input) => _email = input,
+      onSaved:(input) => _password = input,
+      validator:(value) => value.isEmpty ? 'Please Enter Your Password': null,
       autofocus: false,
       initialValue: '',
       obscureText: true,
@@ -126,8 +121,10 @@ class _LoginPageState extends State<LoginPage> {
   if(formState.validate()){
     formState.save();
     try{
-      FirebaseUser user = (await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password)) as FirebaseUser;
+      FirebaseUser user = (await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password)) as FirebaseUser; 
       Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage2(user:user)));
+      return 'test';
+
     }catch(e){
       print(e.message);       
     }
